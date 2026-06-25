@@ -1,0 +1,42 @@
+
+.server-card {
+  width: 320px;
+  height: 320px;
+
+  background: #14532d;
+
+  border: 3px solid #22c55e;
+
+  border-radius: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 20px;
+
+  transition: 0.3s;
+}
+
+.server-card h2 {
+  font-size: 40px;
+}
+
+.server-active {
+  transform: scale(1.03);
+
+  box-shadow: 0 0 30px #22c55e;
+}
+
+.server-status {
+  background: #22c55e;
+
+  color: black;
+
+  padding: 10px 20px;
+
+  border-radius: 999px;
+
+  font-weight: bold;
+}
