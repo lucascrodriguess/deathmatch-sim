@@ -114,13 +114,13 @@ Fluxo simplificado:
 ### 1. Clonar repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/lucascrodriguess/deathmatch-sim.git
 ```
 
 ### 2. Entrar na pasta
 
 ```bash
-cd simulacao-sistemas-distribuidos
+cd deathmatch-sim
 ```
 
 ### 3. Instalar dependências
