@@ -1,16 +1,173 @@
-# React + Vite
+# Simulação de um Estilo de Jogo Mata-Mata Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido para a disciplina de Sistemas Distribuídos.
 
-Currently, two official plugins are available:
+O objetivo do projeto é representar visualmente o fluxo de comunicação entre clientes e servidor em um ambiente multiplayer inspirado em jogos de tiro do tipo mata-mata.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A aplicação simula o envio e processamento de eventos em uma arquitetura distribuída utilizando uma interface web interativa.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Integrantes
 
-## Expanding the ESLint configuration
+**Líder:** Lucas Correa Rodrigues  
+Antone Bilheri Salbego  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Objetivo
+
+Demonstrar visualmente conceitos fundamentais de sistemas distribuídos através da simulação de uma partida online.
+
+Entre os conceitos representados estão:
+
+- Comunicação cliente-servidor
+- Propagação de eventos
+- Processamento centralizado
+- Sincronização entre clientes
+- Atualização de estado distribuído
+- Fluxo de mensagens em tempo real
+
+---
+
+## Funcionalidades atuais
+
+- Simulação de múltiplos jogadores
+- Movimento de jogadores
+- Representação visual da conexão com o servidor
+- Animação de envio de eventos
+- Animação de recebimento de atualizações
+- Processamento visual no servidor
+- Registro de logs em tempo real
+- Estrutura preparada para escalabilidade
+
+---
+
+## Estrutura do Projeto
+
+```text
+src/
+│
+├── components/
+│   │
+│   ├── Player/
+│   │   ├── Player.jsx
+│   │   └── Player.css
+│   │
+│   ├── Connection/
+│   │   ├── Connection.jsx
+│   │   └── Connection.css
+│   │
+│   ├── Server/
+│   │   ├── Server.jsx
+│   │   └── Server.css
+│   │
+│   ├── Logs/
+│   │   ├── Logs.jsx
+│   │   └── Logs.css
+│
+├── App.jsx
+├── App.css
+├── main.jsx
+```
+
+---
+
+## Tecnologias Utilizadas
+
+### Frontend
+- React
+- JavaScript
+- CSS
+
+### Ambiente
+- Vite
+- Node.js
+- npm
+
+---
+
+## Arquitetura da Simulação
+
+```text
+PLAYER A
+     │
+     ▼
+GAME SERVER
+     │
+     ▼
+PLAYER B
+```
+
+Fluxo simplificado:
+
+1. Jogador executa ação
+2. Evento é enviado ao servidor
+3. Servidor processa o evento
+4. Estado é atualizado
+5. Outros jogadores recebem sincronização
+
+---
+
+## Como executar o projeto
+
+### 1. Clonar repositório
+
+```bash
+git clone <url-do-repositorio>
+```
+
+### 2. Entrar na pasta
+
+```bash
+cd simulacao-sistemas-distribuidos
+```
+
+### 3. Instalar dependências
+
+```bash
+npm install
+```
+
+### 4. Executar
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível normalmente em:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Estado atual do desenvolvimento
+
+Versão inicial da demonstração contendo:
+
+- Interface principal
+- Simulação local dos eventos
+- Comunicação visual cliente-servidor
+- Componentização em React
+
+---
+
+## Evoluções planejadas
+
+- Introdução de latência configurável
+- Simulação de perda de pacotes
+- Sistema de disparos
+- Vida dos jogadores
+- Pontuação
+- Múltiplos serviços distribuídos
+- WebSocket para comunicação em tempo real
+- Dashboard de métricas
+- Integração com n8n para orquestração dos eventos
+
+---
+
+## Observações
+
+Esta aplicação possui objetivo educacional e busca facilitar o entendimento do funcionamento interno de sistemas distribuídos utilizados em jogos multiplayer online.
