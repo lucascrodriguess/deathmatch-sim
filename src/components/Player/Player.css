@@ -12,8 +12,7 @@
 }
 
 .player-card {
-  width: 220px;
-  height: 180px;
+  padding: 5px;
 
   background: #1e3a8a;
 
@@ -33,6 +32,10 @@
 
 .player-card h2 {
   font-size: 30px;
+}
+
+.player-card .button-area{
+  gap: 4px;
 }
 
 .player-card button {

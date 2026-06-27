@@ -14,18 +14,39 @@ export default function Player({
       </h2>
 
       <p>
-        Passos: {player.steps}
+        Coordenada x: {player.x}
+        Coordenada y: {player.y}
       </p>
 
       <p>
         Vida: {player.life}
       </p>
 
-      <button
-        onClick={() => onMove(player.id)}
-      >
-        Andar
-      </button>
+      <div className="button-area">
+        <button
+          onClick={() => onMove(player.id, -1, 0)}
+        >
+          ←
+        </button>
+
+        <button
+          onClick={() => onMove(player.id, 0, 1)}
+        >
+          ↑
+        </button>
+
+        <button
+          onClick={() => onMove(player.id, 1, 0)}
+        >
+          →
+        </button>
+
+        <button
+          onClick={() => onMove(player.id, 0, -1)}
+        >
+          ↓
+        </button>
+      </div>
 
     </div>
   );

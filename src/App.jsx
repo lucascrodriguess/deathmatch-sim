@@ -6,13 +6,22 @@ import Player from "./components/Player/Player";
 import Connection from "./components/Connection/Connection";
 import Server from "./components/Server/Server";
 import Logs from "./components/Logs/Logs";
+import GameMap from "./components/GameMap/GameMap";
 
 export default function App() {
 
   // PLAYERS
   const [players, setPlayers] = useState([
-    { id: "A", steps: 0, life: 100 },
-    { id: "B", steps: 0, life: 100 },
+    { id: "A", x: 0, y: 0, life: 100 },
+    { id: "B", x: 1, y: 1, life: 100 },
+  ]);
+
+  // GAMEMAP
+  const [gameMap] = useState([
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0],
+  [0,0,0,0,0]
   ]);
 
   // LOGS
@@ -44,37 +53,42 @@ export default function App() {
 
     setTimeout(() => {
       setServerActive(false);
-    }, 500);
+    }, 600);
   }
 
   // MOVE PLAYER
-  function movePlayer(playerId) {
+  function movePlayer(playerId, playerX, playerY) {
 
     // UPDATE PLAYER
-    setPlayers((prevPlayers) =>
-      prevPlayers.map((player) =>
-        player.id === playerId
-          ? {
-              ...player,
-              steps: player.steps + 1
-            }
-          : player
-      )
+    setPlayers((prev) =>
+      prev.map((current) => {
+
+        if (current.id === playerId){
+          return{
+            ...current,
+            x: current.x + playerX,
+            y: current.y + playerY,
+          };
+        }
+
+        else{
+          return current;
+        }
+      })
     );
 
-    // LINE EFFECT
+    // ACENDE E APAGA LINHA E SETA
     setActiveLine(playerId);
+    setSendArrow(playerId);
 
     setTimeout(() => {
       setActiveLine(null);
     }, 600);
 
-    // SEND EFFECT
-    setSendArrow(playerId);
-
     setTimeout(() => {
       setSendArrow(null);
     }, 600);
+
 
     addLog(`Player ${playerId} enviou MOVE`);
 
@@ -90,19 +104,30 @@ export default function App() {
       // OTHER PLAYERS RECEIVE
       players.forEach((player) => {
 
+        // ACENDE E APAGA LINHA E SETA
         if (player.id !== playerId) {
+          
+          setTimeout(() => {
+            setActiveLine(player.id);
+          }, 600);
 
-          setReceiveArrow(player.id);
+          setTimeout(() => {
+            setReceiveArrow(player.id);
+          }, 600);
+
+          setTimeout(() => {
+            setActiveLine(null);
+          }, 1200);
 
           setTimeout(() => {
             setReceiveArrow(null);
-          }, 600);
+          }, 1200);
 
         }
 
       });
 
-    }, 300);
+    }, 600);
   }
 
   return (
@@ -124,6 +149,13 @@ export default function App() {
 
       {/* SIMULATION */}
       <div className="simulation-area">
+
+        {/*
+        <GameMap
+          gameMap={gameMap}
+          players={players}
+        />
+        */}
 
         {/* PLAYERS */}
         <div className="players-column">
