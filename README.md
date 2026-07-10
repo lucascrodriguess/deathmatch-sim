@@ -62,6 +62,10 @@ src/
 │   │   ├── Connection.jsx
 │   │   └── Connection.css
 │   │
+│   ├── GameMap/
+│   │   ├── GameMap.jsx
+│   │   └── GameMap.css
+│   │
 │   ├── Server/
 │   │   ├── Server.jsx
 │   │   └── Server.css
@@ -149,26 +153,17 @@ http://localhost:5173
 
 ## Estado atual do desenvolvimento
 
-Versão inicial da demonstração contendo:
+Versão final da demonstração contendo:
 
 - Interface principal
 - Simulação local dos eventos
 - Comunicação visual cliente-servidor
 - Componentização em React
-
----
-
-## Evoluções planejadas
-
-- Introdução de latência configurável
+- Latência configurável
 - Simulação de perda de pacotes
 - Sistema de disparos
 - Vida dos jogadores
 - Pontuação
-- Múltiplos serviços distribuídos
-- WebSocket para comunicação em tempo real
-- Dashboard de métricas
-- Integração com n8n para orquestração dos eventos
 
 ---
 

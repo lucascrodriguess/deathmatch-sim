@@ -1,0 +1,42 @@
+
+.logs-panel {
+  width: 100%;
+  max-width: 1100px;
+
+  margin: 0 auto;
+
+  background: #111827;
+
+  border: 1px solid #334155;
+
+  border-radius: 20px;
+
+  padding: 25px;
+}
+
+.logs-panel h2 {
+  margin-bottom: 20px;
+}
+
+.logs-container {
+  max-height: 300px;
+
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.log-item {
+  background: #0f172a;
+
+  border: 1px solid #1e293b;
+
+  padding: 14px;
+
+  border-radius: 10px;
+
+  color: #cbd5e1;
+}
