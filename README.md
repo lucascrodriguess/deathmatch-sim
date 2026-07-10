@@ -32,13 +32,17 @@ Entre os conceitos representados estão:
 
 ## Funcionalidades atuais
 
-- Simulação de múltiplos jogadores
-- Movimento de jogadores
-- Representação visual da conexão com o servidor
-- Animação de envio de eventos
-- Animação de recebimento de atualizações
-- Processamento visual no servidor
-- Registro de logs em tempo real
+- Simulação de múltiplos jogadores com posições únicas no mapa
+- Movimentação de jogadores em um mapa de grade
+- Sistema de tiros com detecção de linha, dano e kills
+- Vida dos jogadores e respawn automático ao morrer
+- Placar de kills em tempo real
+- Controle de latência configurável (ping)
+- Simulação de perda de pacotes (30% de chance)
+- Animação de envio e recebimento de pacotes entre nós
+- Processamento centralizado e broadcast de estado pelo servidor
+- Registro de logs detalhados de rede e servidor
+- Interface de logs expansível/colapsável
 - Estrutura preparada para escalabilidade
 
 ---
