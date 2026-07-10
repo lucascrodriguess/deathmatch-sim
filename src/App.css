@@ -1,0 +1,255 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #0f172a;
+  color: white;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 40px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.header h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.header p {
+  color: #94a3b8;
+}
+
+.simulation-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+  margin-bottom: 60px;
+  flex-wrap: wrap;
+}
+
+.map-column {
+  display: flex;
+  justify-content: center;
+}
+
+.players-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.map-area {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.map-top-row {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Nova linha inferior que agrupa os Jogadores e o Servidor lado a lado */
+.network-floor {
+  display: flex;
+  flex-direction: row;    /* Mantém os players e o servidor lado a lado */
+  justify-content: center;
+  align-items: center;
+  gap: 100px;             /* Distância horizontal entre a coluna de players e o Server */
+  width: 100%;
+}
+
+/* Container principal do painel técnico */
+.network-dashboard {
+  background: #2c3e50;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0 25px 0; /* Ajustado para alinhar melhor com o novo layout */
+  color: white;
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Divs internas que envelopam cada controle */
+.dashboard-control {
+  display: flex;
+  align-items: center;
+}
+
+/* Labels de texto gerais do painel */
+.dashboard-label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* O controle deslizante (Slider) da latência */
+.latency-slider {
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+/* Label interativo específico do checkbox */
+.dashboard-checkbox-label {
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* A caixinha de seleção (Checkbox) da perda de pacotes */
+.packet-loss-checkbox {
+  margin-right: 8px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* Ajuste de responsividade: empilha os controles se a tela for muito pequena */
+@media (max-width: 768px) {
+  .network-dashboard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+}
+
+.main-layout {
+  display: flex;
+  width: 100%;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Área da esquerda se estende para ocupar tudo o que sobrar */
+.simulation-content {
+  flex-grow: 1;
+  width: 100%;
+}
+
+/* Barra lateral dos Logs na direita */
+.logs-sidebar {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+  background: #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4);
+}
+
+/* Largura da barra quando está aberta */
+.logs-sidebar.open {
+  width: 380px;
+  min-width: 380px;
+}
+
+/* Aparência e compressão quando está minimizada */
+.logs-sidebar.collapsed {
+  width: 50px;
+  min-width: 50px;
+  background: #0f172a; /* Esconde visualmente misturando com o fundo */
+  box-shadow: none;
+}
+
+/* Remove os textos de log instantaneamente quando colapsar */
+.logs-sidebar.collapsed .logs-content-wrapper {
+  display: none;
+}
+
+/* Botão interativo de alternância */
+.toggle-logs-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 11px;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.toggle-logs-btn:hover {
+  background: #2563eb;
+}
+
+/* CONTAINER PRINCIPAL DO PLACAR */
+.scoreboard-panel {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 25px;
+  width: 100%;
+}
+
+.scoreboard-title {
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #94a3b8;
+  letter-spacing: 0.05em;
+  margin: 0 0 12px 0;
+  text-align: left;
+}
+
+/* CONTAINER DOS DOS CARDS (GRID AUTO-RESPONSIVO) */
+.scoreboard-cards {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap; /* Permite quebrar linha caso existam dezenas de jogadores */
+}
+
+/* CARDS INDIVIDUAIS DE CADA JOGADOR */
+.player-score-card {
+  background: #0f172a;
+  border-left: 4px solid #3b82f6;
+  border-radius: 4px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 150px;
+  flex-grow: 1; /* Faz com que todos dividam o espaço horizontal por igual */
+}
+
+.player-score-badge {
+  font-weight: bold;
+  color: #e2e8f0;
+}
+
+.player-score-value {
+  font-size: 16px;
+  font-weight: 800;
+  color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 2px 10px;
+  border-radius: 6px;
+}
+
+.player-score-value span {
+  font-size: 11px;
+  font-weight: 400;
+  color: #64748b;
+  text-transform: lowercase;
+}
